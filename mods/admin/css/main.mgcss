@@ -1,0 +1,547 @@
+/*
+@package: Zipp
+@version: 1.0 <2019-06-14>
+*/
+
+*
+	@core
+	font-family: inherit
+	font-size: inherit
+	font-weight: inherit
+	line-height: inherit
+	letter-spacing: inherit
+	color: inherit
+
+body
+	font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif
+	font-size: 15px
+	//font-weight: 500
+
+	background-color: #e5e5e5
+
+// collors
+
+h1
+	font-size: 24px
+	line-height: 28px
+	font-weight: 600
+	margin-bottom: 20px
+	color: #000
+
+h2
+	font-size: 18px
+	line-height: 21px
+	//font-weight: 600
+	margin-bottom: 10px
+
+h3
+	font-size: 16px
+	line-height: 19px
+	font-weight: 600
+
+b
+	font-weight: 600
+
+/* Loader */
+@keyframes loader
+	from
+		transform: translateX(0)
+	to
+		transform: translateX(100vw)
+	
+.loader
+	@fixed
+	@none
+	top: 0
+	left: 0
+	width: 100%
+	height: 2px
+	z-index: 999
+
+	::after
+		@ctn
+		@absolute
+		@block
+		top: 0
+		left: -3%
+		width: 6%
+		height: 100%
+		background-color: #fff
+
+.loading .loader
+	@block
+
+	::after
+		animation-name: loader
+		animation-duration: 1s
+		animation-timing-function: cubic-bezier(0.68, 0.01, 0.28, 1)
+		animation-direction: alternate
+		animation-iteration-count: infinite
+
+/* place holders */
+h1.ph
+	height: 28px
+	background-color: #d3d3d3
+
+h2.ph
+	height: 21px
+	background-color: #e5e5e5
+
+h3.ph
+	height: 18px
+	background-color: #e5e5e5
+
+p.ph
+	height: 15px
+	background-color: #e5e5e5
+
+img.ph
+	@block
+	width: 100%
+	padding-bottom: 50%
+	background-color: #6c6c6c
+	border: none
+
+/* Form */
+.notice
+	background-color: #ffcd70
+	padding: 7px
+	margin-bottom: 8px
+
+
+/* Main */
+.show-nav.main-container
+	display: grid
+	grid-template-columns: 240px 1fr
+	grid-template-rows: 60px 1fr
+
+main
+	@relative
+
+.show-nav main
+	padding: 16px 32px
+	grid-column-start: 2
+	grid-column-end: 3
+
+.basic-cont-ph
+	background-color: #fff
+	padding: 14px 16px
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2)
+	height: 300px
+
+.basic-cont
+	background-color: #fff
+	padding: 14px 16px
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2)
+
+.basic-cont, .basic-cont-ph
+	h2
+		@relative
+		margin-bottom: 36px
+
+/* login */
+.login-cont
+	@fixed
+	@flex
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	align-items: center
+	justify-content: center
+	background-color: #fff
+
+.login-img
+	@relative
+	width: calc(70%)
+	height: 100%
+	background-position: center
+	background-size: cover
+
+	::before
+		@ctn
+		@absolute
+		@block
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: rgba(0,0,0,.2)
+
+	a
+		@absolute
+		bottom: 48px
+		left: 50%
+		transform: translateX(-50%)
+		text-decoration: none
+		color: #fff
+		font-size: 14px
+
+.login-box
+	width: 30%
+	padding: 32px
+
+	h2
+		font-size: 24px
+		color: #000
+
+	.login-form
+		margin: 40px 0
+
+	input
+		+[type="text"], +[type="password"]
+			margin-bottom: 20px
+
+		+[type="submit"]
+			width: auto
+
+	.notice
+		margin-bottom: 20px
+
+
+/* Widgets */
+.widgets-cont
+	@grid
+	grid-template-columns: 1fr 1fr
+	grid-gap: 32px 30px
+
+.widget
+	background-color: #fff
+	padding: 14px 16px
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2)
+
+	h2
+		@relative
+		margin-bottom: 26px
+
+		::after
+			@ctn
+			@absolute
+			left: -16px
+			bottom: -16px
+			width: calc(100% + 32px)
+			height: 2px
+			background-color: #f4f4f5
+
+.widget-ctn-ph
+	height: 200px
+
+
+/* Navigation */
+.logo-cont
+	@none
+	background-color: #212121
+
+.show-nav .logo-cont
+	display: flex
+	align-items: center
+	justify-content: center
+
+.logo-ph
+	width: 130px
+	height: 32px
+	background-color: #fff
+
+/* this will be changed to an svg i think :) */
+span.logo
+	font-size: 22px
+	font-weight: 900
+	color: #fff
+	text-transform: uppercase
+
+.top-nav
+	@none
+	padding: 0 32px
+	background-color: #212121
+	color: #fff
+
+	> div
+		display: flex
+
+.show-nav .top-nav
+	display: flex
+	align-items: center
+	justify-content: space-between
+
+.left-nav-ph
+	height: 14px
+	width: 400px
+	background-color: rgba(255,255,255,.7)
+
+.left-nav
+	a
+		@block
+		margin-right: 32px
+		color: rgba(255,255,255,.7)
+		text-decoration: none
+		transition: color .4s ease
+
+		+.active, :hover
+			color: #fff
+
+.right-nav-ph
+	height: 14px
+	width: 60px
+	background-color: #fff
+
+.right-nav a
+	@block
+	text-decoration: none
+
+.sec-item-ph
+	height: 36px
+	width: 100%
+	margin-bottom: 8px
+	border-radius: 2px
+	background-color: #ececed
+
+.show-nav .sec-nav
+	@block
+
+.sec-nav
+	@none
+	padding: 16px
+	background-color: #fff
+	min-height: calc(100vh - 60px)
+
+	a
+		@relative
+		@block
+		margin-bottom: 8px
+		padding: 9px 30px
+		text-decoration: none
+		border-radius: 2px
+		background-color: transparent
+		transition: background-color .4s ease
+
+		::before
+			@ctn
+			@absolute
+			@block
+			top: 50%
+			left: 8px
+			width: 16px
+			height: 16px
+			transform: translateY(-50%)
+			background-size: contain
+			background-position: center
+			background-repeat: no-repeat
+
+		+.active, :hover
+			background-color: #ececed
+
+/* Page icons */
+.page-icon-default::before
+	background-image: url('./../../mods/admin/icons/default.svg')
+
+.page-icon-dashboard::before
+	background-image: url('./../../mods/admin/icons/dashboard.svg')
+
+.page-icon-development::before
+	background-image: url('./../../mods/admin/icons/development.svg')
+
+/* page top > page means */
+.page-top
+	display: flex
+	align-items: center
+	margin-bottom: 20px
+
+	h1
+		margin: 0
+
+		+.ph
+			width: 50%
+
+/* Top Actions */
+.top-actions
+	display: flex
+	margin-left: auto
+
+.tp-act-ph
+	width: 110px
+	height: 37px
+	margin-left: 8px
+	background-color: #2c2d35
+	border-radius: 2px
+
+.tp-act
+	@relative
+	padding: 10px 10px 10px 34px
+	font-size: 14px
+	color: #fff
+	text-decoration: none
+	margin-left: 8px
+	background-color: #2c2d35
+	border-radius: 2px
+
+	::before
+		@ctn
+		@absolute
+		top: 50%
+		left: 10px
+		width: 16px
+		height: 16px
+		transform: translateY(-50%)
+		background-size: contain
+		background-position: center
+		background-repeat: no-repeat
+		pointer-events: none
+
+	option
+		background-color: #2c2d35
+		color: #fff
+
+.tp-act-dropdown
+	padding: 0
+	border-radius: none
+
+	select
+		@block
+		height: 100%
+		padding: 9px 32px 9px 34px
+		cursor: pointer
+		border: none
+		font-size: 14px
+		border-radius: 2px
+		background-color: transparent
+		-moz-appearance: none
+		-webkit-appearance: none
+		appearance: none
+
+	::after
+		@ctn
+		@absolute
+		@block
+		top: 0
+		right: 0
+		width: 24px
+		height: 100%
+		pointer-events: none
+		background-color: #5d5f6f
+		background-size: 16px
+		background-position: center
+		background-repeat: no-repeat
+		background-image: url('./../../mods/admin/icons/tp_dropdown.svg')
+		border-radius: 0 2px 2px 0
+
+// TP Icons
+.tp-icon-add::before
+	background-image: url('./../../mods/admin/icons/add.svg')
+
+.tp-icon-delete::before
+	background-image: url('./../../mods/admin/icons/delete.svg')
+
+.tp-icon-save::before
+	background-image: url('./../../mods/admin/icons/save.svg')
+
+.tp-icon-notsaved::before
+	background-image: url('./../../mods/admin/icons/notsaved.svg')
+
+// Only Icons
+.only-icon
+	@block
+	width: 16px
+	height: 16px
+	background-size: contain
+	background-position: center
+	background-repeat: no-repeat
+
+.o-icon-move
+	background-image: url('./../../mods/admin/icons/move.svg')
+
+.o-icon-add
+	background-image: url('./../../mods/admin/icons/o_add.svg')
+
+.o-icon-delete
+	background-image: url('./../../mods/admin/icons/o_delete.svg')
+
+/* Popup */
+.popup
+	@fixed
+	display: flex
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	align-items: center
+	justify-content: center
+	background-color: rgba(0,0,0,.6)
+	z-index: 10
+
+.close-pop
+	@absolute
+	@block
+	top: 8px
+	right: 16px
+	width: 24px
+	height: 24px
+
+	::before, ::after
+		@ctn
+		@absolute
+		@block
+		top: 50%
+		left: 50%
+		height: 2px
+		width: 18px
+		background-color: rgba(0,0,0,.54)
+		border-radius: 1px
+
+	::before
+		transform: translate(-50%, -50%) rotate(-45deg)
+
+	::after
+		transform: translate(-50%, -50%) rotate(45deg)
+
+.pop-cont
+	@relative
+	min-width: 320px
+	background-color: #fff
+	padding: 10px 16px
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2)
+
+	h2
+		@relative
+		margin-bottom: 34px
+
+		::after
+			@ctn
+			@absolute
+			@block
+			left: -16px
+			bottom: -10px
+			width: calc(100% + 32px)
+			height: 2px
+			background-color: #f4f4f5
+
+	.actions
+		@flex
+		justify-content: flex-end
+		margin: 16px -16px -16px -16px
+		padding: 16px
+		background-color: #f0f0f0
+
+	.pop-act
+		@block
+		margin-left: 8px
+		padding: 8px 9px
+		border-radius: 2px
+		border: 1px solid #2c2d35
+		color: #000
+		text-decoration: none
+		transition: background-color .2s ease, color .2s ease
+
+		:hover
+			background-color: #2c2d35
+			color: #fff
+
+		+.full
+			color: #fff
+			background-color: #2c2d35
+
+			:hover
+				background-color: #fff
+				color: #000
+
+.pop-small
+	max-width: 420px

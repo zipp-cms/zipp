@@ -1,0 +1,2 @@
+basePath: zipp/
+allowedHosts -a: localhost

@@ -1,0 +1,156 @@
+// Mixins
+
+/* Hey Stile */
+*
+	@core
+	font-family: 'Roboto', 'Open Sans', Arial, sans-serif
+	font-size: inherit
+
+body
+	background-color: #eee
+	font-size: 15px
+
+h1
+	font-size: 30px
+	color: #fff
+
+h2
+	font-size: 20px
+	font-weight: 600
+
+p
+	line-height: 20px
+
+.logo
+	text-transform: uppercase
+	font-weight: 600
+	font-size: 20px
+	color: #fff
+	text-decoration: none
+
+nav
+	@flex
+	justify-content: center
+
+	a
+		@block
+		color: #fff
+		padding: 0 10px
+
+		+.children-active #myclass
+			color: orange
+
+		+.active
+			color: red
+
+	ul
+		list-style-type: none
+
+	li
+		@relative
+
+		> ul
+			@absolute
+			min-width: 100%
+			padding: 10px
+			background-color: #000
+
+		:hover > ul
+			@block
+
+	> ul
+		@flex
+
+		ul
+			@none
+
+header
+	@grid
+	padding: 10px 20px
+	align-items: center
+	grid-template-columns: repeat(3, 1fr)
+	background-color: #000
+
+	.langs
+		@flex
+		justify-content: flex-end
+
+		a
+			@block
+			color: #fff
+			padding: 0 5px
+
+			+.active
+				color: red
+
+footer
+	margin-top: 20px
+	padding: 10px 20px
+	background-color: #000
+
+	p
+		color: #fff
+
+.big-header, .small-header
+	@flex
+	height: 80vh
+	background-color: #838383
+	justify-content: center
+	align-items: center
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+
+.small-header
+	height: 30vh
+
+.big-header
+	.center
+		text-align: center
+
+	p
+		color: #fff
+		font-size: 20px
+
+.content
+	margin: 15px auto 0 auto
+	padding: 10px
+	max-width: 550px
+
+	ul, ol
+		padding-left: 25px
+		margin: 10px 0
+
+	p
+		margin-bottom: 10px
+
+.blogs
+	max-width: 550px
+	margin: 30px auto
+
+	article
+		@relative
+		margin-top: 20px
+
+		h3
+			margin-bottom: 5px
+
+		time
+			@absolute
+			@block
+			top: 2px
+			right: 0
+			color: #8c8c8c
+
+		a
+			@block
+			margin-top: 5px
+
+/* Contact */
+.contact
+
+	input, textarea
+		@block
+		width: 100%
+		margin-top: 5px
+		padding: 7px 10px

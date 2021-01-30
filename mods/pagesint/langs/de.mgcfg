@@ -1,0 +1,59 @@
+pagesSection: Seiten
+
+pagesTitle: Alle Seiten
+pageLayout: Layout
+searchField: Seiten suchen
+
+pageIdUndefined: Konnte keine Seite mit dieser Id finden
+newPageInputError: Die angegebenen Daten sind nicht gültig
+newPageError: Das Feld %s ist nicht gültig
+
+// new Page
+newPageTitle: Neue Seite
+layoutField: Layout
+langField: Sprache
+newPage: Neue Seite
+
+// new PageLang
+newPageLangInputError: Bitte überprüfe die Eingaben
+newPageLangExists: Diese Sprache existiert bereits
+copyFromField: Inhalt kopieren
+dontCopy: Nicht kopieren
+
+// edit page
+editPageTitle: Seite bearbeiten
+titleField: Titel
+urlField: URL
+pageLang: Sprache
+newLang: Sprache hinzufügen
+createNewLang: Sprache hinzufügen
+editPageInputError: Der Titel oder die Url ist nicht gültig
+editFieldError: Das Feld %s ist ungültig
+editPageUrlExists: Diese Url existiert bereits
+previewLink: Vorschau anzeigen
+publishField: Veröffentlichungsdatum
+deleteBtn: Löschen
+saveBtn: Speichern
+keywordsField: Stichwörter
+
+contentTab: Inhalt
+optionTab: Optionen
+
+// Dynamic
+newDynPage: Neue %s
+
+// states
+stateField: Status
+stateArchive: Archiv
+statePreview: Vorschau
+stateLive: Live
+
+pagesInfo: Info
+
+// delete
+delError: Konnte die Seite nicht löschen
+deleteLang: Seite löschen
+delOption: Was soll mit der Seite passieren? Bitte beachte dass referenzen zu dieser Seiten nicht mehr funktionieren.
+pageDel: Sprache löschen
+deleteForever: Für immer löschen
+archiveBtn: Archiv

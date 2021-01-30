@@ -1,0 +1,22 @@
+userSection: Mein Profil
+usersHi: Hallo, %s
+userTitle: Benutzer
+// all users
+allUsersTitle: Alle Benutzer
+// logout
+logoutTitle: Abmelden
+
+// main user
+usernameField: Benutzername
+roleField: Rolle
+roleTexts -a: 0, Viewer,2,3, Editor, 5, Owner, 7, Administrator, 9, root
+surnameField: Vorname
+lastnameField: Nachname
+emailField: Email
+newPassword: Neues Passwort
+repeatNewPassword: Neues Passwort wiederholen
+userSave: Speichern
+
+passwordError: Die Neuen Passwörter stimmen nicht überein
+
+fieldError: Das Feld %s ist ungültig

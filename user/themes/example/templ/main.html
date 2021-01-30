@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="|page.lang|">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>|esc site.name| - |esc page.title|</title>
+
+	<link rel="alternate" href="|url ''|" hreflang="x-default">
+	|for slug, p in page.langs|
+	<link rel="alternate" href="|p.url|" hreflang="|slug|">
+	|end|
+
+	|for asset in assets( 'css' )|
+		<link rel="stylesheet" type="text/css" href="|asset|">
+	|end|
+
+</head>
+<body>
+
+	<!--
+
+	|for group in test.multipleRepeat| 
+		FirstText: |group.firstText| 
+		SecondText: |group.secondText| 
+	|end|
+
+	-->
+
+	<header>
+		<a href="|url page.lang. '/'|" class="logo">|esc site.name|</a>
+		<nav>
+			<!--  -->
+			|inc 'templ/nav', ['nav' => main.navigation]|
+
+		</nav>
+		<div class="langs">
+			|for slug, p in page.langs|
+				<a href="|p.url|"|page.lang == slug ? ' class="active"' :|>|slug|</a>
+			|end|
+		</div>
+	</header>
+
+	<main>
+		|out 'main'|
+	</main>
+
+	<footer>
+		<p>Copyright |date('Y')| - |esc main.footerText|</p>
+	</footer>
+
+	|for asset in assets( 'js' )|
+		<script type="text/javascript" src="|asset|"></script>
+	|end|
+
+</body>
+</html>

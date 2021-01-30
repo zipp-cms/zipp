@@ -1,0 +1,11 @@
+.logs-widget-cont
+	
+	h3
+		margin: 20px 0 10px 0
+
+	ul
+		list-style-type: none
+
+	li
+		@flex
+		justify-content: space-between

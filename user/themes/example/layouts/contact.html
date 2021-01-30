@@ -1,0 +1,17 @@
+|block 'main'|
+
+	|comp 'smallheader'|
+
+	|form = theme.handleContact()|
+
+	<div class="content contact">
+		|if form.success|
+			|inc 'templ/success'|
+		|else|
+			|inc 'templ/contactform', ['form' => form]|
+		|end|
+	</div>
+
+|end|
+
+|inc 'templ/main'|

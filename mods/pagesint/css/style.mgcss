@@ -1,0 +1,268 @@
+/* Pages */
+.pages-cont
+	background-color: #fff
+	padding: 10px 16px 16px 16px
+	box-shadow: 0 2px 4px rgba(0,0,0,.2)
+	--live: rgba(44, 45, 53, 1)
+	--preview: rgba(44, 45, 53, .7)
+	--archive: rgba(44, 45, 53, .3)
+
+.pages-actions
+	@relative
+	@flex
+	margin-bottom: 20px
+	justify-content: flex-end
+
+	::after
+		@ctn
+		@absolute
+		@block
+		bottom: -11px
+		left: -16px
+		width: calc(100% + 32px)
+		height: 2px
+		background-color: #f4f4f5
+
+.search-ph
+	width: 340px
+	height: 36px
+	background-color: #e9e9ec
+
+.pages-search-bar
+	@flex
+	width: 340px
+	background-color: #e9e9ec
+
+input.search-bar
+	margin: 0
+	background-color: transparent
+
+.search-icon
+	@relative
+	flex-basis: 36px
+	flex-grow: 0
+	flex-shrink: 0
+	height: 36px
+	cursor: pointer
+
+	::after
+		@ctn
+		@absolute
+		top: 50%
+		left: 50%
+		width: 16px
+		height: 16px
+		transform: translate(-50%, -50%)
+		background-size: contain
+		background-position: center
+		background-repeat: no-repeat
+		background-image: url('./../../mods/pagesint/icons/search.svg')
+
+
+
+.page-ph
+	width: 100%
+	height: 40px
+	background-color: #ececed
+	border-radius: 2px
+	margin-bottom: 8px
+
+.page
+	@grid
+	grid-gap: 0 5px
+	padding: 0 10px
+	height: 40px
+	text-decoration: none
+	border-radius: 2px
+	margin-bottom: 8px
+	align-items: center
+	// 20
+	grid-template-columns: 1fr 100px 1fr 200px
+	background-color: transparent
+	transition: background-color .4s ease
+
+
+	+.hide
+		@none
+
+	:hover
+		background-color: #ececed
+
+	h2
+		margin: 0
+		font-weight: 500
+
+	.langs
+		@flex
+
+		span
+			@relative
+			@block
+			padding: 3px 6px
+			color: #fff
+			font-size: 13px
+			@uppercase
+			// background-color: #31323b
+			// border: 2px solid #fff
+			border-radius: 2px
+			margin-right: 3px
+			overflow: hidden
+
+			+[data-state="0"]
+				background-color: --archive
+
+			+[data-state="1"]
+				background-color: --preview
+
+			+[data-state="2"]
+				background-color: --live
+
+.pages-info
+	@flex
+	margin-top: 16px
+
+	.p-info-ph
+		width: 60px
+		height: 15px
+		background-color: #ececed
+		margin-right: 10px
+
+	a
+		@relative
+		@block
+		margin-left: 10px
+		padding-left: 16px
+
+		::before
+			@ctn
+			@absolute
+			@block
+			left: 4px
+			top: 50%
+			width: 8px
+			height: 8px
+			border-radius: 50%
+			transform: translateY(-50%)
+
+		+[data-state="0"]::before
+			background-color: --archive
+
+		+[data-state="1"]::before
+			background-color: --preview
+
+		+[data-state="2"]::before
+			background-color: --live
+
+
+/* page edit */
+.view-link
+	margin-left: 8px
+
+.page-cont
+	background-color: #fff
+	padding: 13px 16px 16px 16px
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
+
+	h3
+		margin-top: 32px
+		margin-bottom: 8px
+
+	.notice
+		margin-bottom: 22px
+
+.page-switcher
+	@relative
+	@grid
+	grid-template-columns: 1fr 1fr
+	grid-gap: 30px
+	margin-bottom: 36px
+
+	h2
+		margin-bottom: 0
+		cursor: pointer
+
+	a
+		@relative
+		@block
+		text-decoration: none
+
+		::after
+			@ctn
+			@absolute
+			@block
+			left: 0
+			bottom: -12px
+			width: 100%
+			height: 2px
+			background-color: transparent
+			z-index: 1
+			transition: background-color .2s ease
+
+	
+
+		+.active, :hover
+			::after
+				background-color: #9496a9
+
+	::after
+		@ctn
+		@absolute
+		@block
+		left: -16px
+		bottom: -12px
+		width: calc(100% + 32px)
+		height: 2px
+		background-color: #f4f4f5
+
+.page-cont.real
+	.page-content, .page-options
+		@none
+
+		+.show
+			@block
+
+// Navigation Field
+.navigation-item
+	@flex
+	align-items: center
+	margin-bottom: 6px
+
+	a
+		opacity: .8
+
+	span
+		//margin: 0 16px 0 4px
+		margin-right: 16px
+		padding: 9px 12px
+		border-radius: 2px
+
+	.remove
+		margin-left: 10px
+
+	:hover
+		a
+			opacity: 1
+
+		span
+			background-color: #e9e9ec
+
+.navigation-cont > .navigation-level .navigation-level
+	padding-left: 20px
+
+.navigation-cont > .add
+	@flex
+	padding: 9px 0
+	text-decoration: none
+
+	.only-icon
+		margin-right: 4px
+
+// Icons
+.page-icon-all-pages::before
+	background-image: url('./../../mods/pagesint/icons/all_pages.svg')
+
+.page-icon-page-cat::before
+	background-image: url('./../../mods/pagesint/icons/page_cat.svg')
+
+.o-icon-view
+	background-image: url('./../../mods/pagesint/icons/view.svg')

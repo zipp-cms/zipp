@@ -1,0 +1,283 @@
+assets
+	css -a: style.mgcss
+	js -a: main
+
+components
+	bigheader
+		name: 'bigHeader
+		fields
+			headerTitle
+				name: 'headerTitle
+				desc: 'descHeaderTitle
+
+			headerText
+				name: 'headerText
+
+			headerImg
+				type: SingleFile
+				name: 'headerImg
+				selectBtn: 'selectMedia
+				allowed -a: jpg, png, gif
+				notAllowed: 'onlyImg
+
+	smallheader
+		name: 'smallHeader
+		fields
+			headerImg
+				type: SingleFile
+				name: 'headerImg
+				selectBtn: 'selectMedia
+				allowed -a: jpg, png, gif
+				notAllowed: 'onlyImg
+
+
+
+layouts
+	home
+		name: 'homeLayout
+		components -a: bigheader
+		fields
+			maxBlogs
+				type: Number
+				name: 'maxBlogs
+
+	blog
+		name: 'blogLayout
+		cache: true
+		components -a: smallheader
+		fields
+			shortText
+				type: Textarea
+				name: 'blogShortText
+
+			content
+				type: Editor
+				name: 'blogContent
+
+	main
+		name: 'mainLayout
+		cache: true
+		components -a: smallheader
+		fields
+			content
+				type: Editor
+				name: 'mainContent
+
+	contact
+		name: 'contactLayout
+		components -a: smallheader
+		fields
+			form
+				name: 'formTitleField
+
+			name
+				name: 'nameField
+
+			email
+				name: 'emailField
+
+			content
+				name: 'contentField
+
+			button
+				name: 'buttonField
+
+			subject
+				name: 'subjectField
+
+			thanks
+				type: Textarea
+				name: 'thanksMessage
+
+			socialMedia
+				type: MultipleRepeat
+				name: 'socialMediaLinks
+				addBtn: 'addSocialMediaLink
+				removeBtn: 'removeSocialMediaLink
+
+				fields
+					kind
+						type: DropDown
+						name: 'socialMediaKind
+						options
+							facebook: 'facebook
+							twitter: 'twitter
+							instagram: 'instagram
+
+					link
+						name: 'socialMediaLink
+
+settings
+	main
+		name: 'mainSettings
+		fields
+			description
+				type: Textarea
+				name: 'descSettings
+
+			footerText
+				type: Textarea
+				name: 'footerText
+
+			contactFormEmail
+				type: Email
+				name: 'adminEmail
+
+			navigation
+				type: Navigation
+				name: 'navigationField
+				layouts -a: home, main, contact
+				addBtn: 'navAddBtn
+				selectTitle: 'navSelectTitle
+				selectBtn: 'select
+				selectCancel: 'cancel
+
+	test
+		name: Testing Fields
+		fields
+			multipleImages
+				type: MultipleFiles
+				name: Multiple Files
+				selectBtn: Select Images
+				allowed -a: jpg, png, gif
+				notAllowed: You can only upload images
+
+			repeatText
+				type: SingleRepeat
+				addBtn: Add Text
+				removeBtn: Remove Text
+
+				field
+					text
+						type: Text
+						name: Repeat Text
+
+			repeatFiles
+				type: SingleRepeat
+				addBtn: Add Category
+				removeBtn: Remove Text
+
+				field
+					img
+						type: MultipleFiles
+						name: Repeat Images
+						selectBtn: Select Images
+						allowed -a: jpg, png, gif
+						notAllowed: You can only upload images
+
+			multipleRepeat
+				type: MultipleRepeat
+				name: Repeat Double Text
+				addBtn: Add New Repeat Box
+				removeBtn: Remove Repeat Box
+
+				fields
+					firstText
+						type: Text
+						name: Title
+
+					secondText
+						type: Text
+						name: Full Text
+
+			multipleRepeatWithImg
+				type: MultipleRepeat
+				name: Repeat Double Text with Image
+				addBtn: Add New Repeat Box
+				removeBtn: Remove Repeat Box
+
+				fields
+					firstText
+						type: Text
+						name: Title
+
+					secondText
+						type: Text
+						name: Full Text
+
+					img
+						type: SingleFile
+						name: 'headerImg
+						selectBtn: 'selectMedia
+						allowed -a: jpg, png, gif
+						notAllowed: 'onlyImg
+
+			multipleRepeatWithPage
+				type: MultipleRepeat
+				name: Repeat Text with Page
+				addBtn: Add New Repeat Box
+				removeBtn: Remove Repeat Box
+
+				fields
+					text
+						name: Title
+
+					page
+						type: Page
+						name: Page
+						layouts -a: blog, main, contact
+
+	testinception
+		name: Test Inception
+
+		fields
+			mrwithsr
+				type: MultipleRepeat
+				name: Repeat Double Text with Image
+				addBtn: Add New Repeat Box
+				removeBtn: Remove Repeat Box
+
+				fields
+					firstText
+						type: Text
+						name: Title
+
+					categories
+						type: SingleRepeat
+						addBtn: Add Category
+						removeBtn: Remove Category
+
+						field
+							cat
+								name: Categories
+
+			mrwithmr
+				type: MultipleRepeat
+				name: Repeat Text with Double Text
+				addBtn: Add New Repeat Box
+				removeBtn: Remove Repeat Box
+
+				fields
+					firstText
+						name: Title
+
+					page
+						type: Page
+						name: Page
+						noPage: No Page
+						layouts -a: main
+
+					links
+						type: MultipleRepeat
+						name: Double Text
+						addBtn: Add Link
+						removeBtn: Remove Link
+
+						fields
+							text
+								name: Text
+
+							link
+								name: Link
+
+
+pageCategories
+	main
+		pluralName: 'mainPages
+		singleName: 'mainPage
+		layouts -a: home, main, contact
+
+	blog
+		pluralName: 'blogEntries
+		singleName: 'blogEntry
+		layouts -a: blog

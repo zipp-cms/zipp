@@ -1,0 +1,28 @@
+admin: Admin
+// login
+loginTitle: Ins Zipp CMS einloggen
+loginUsername: Benutzername
+loginPassword: Passwort
+loginSubmit: Einloggen
+credsError: Benutzernamen oder Passwort ist nicht richtig
+nonceIncorrect: Das Formular konnte nicht validiert werden. Bitte laden Sie die Seite neu.
+imageBy: Bild von %s
+notLoggedIn: Bitte melde dich an
+
+// sections
+homeSection: Home
+devSection: Entwicklung
+
+// HOME
+homeTitle: Dashboard
+
+// CONTENT
+contentTitle: Alle Seiten
+
+// Dev
+devTitle: Entwicklung
+devModulesTitle: Module
+
+authError: Du bist kein Administrator
+
+loading: Wird geladen

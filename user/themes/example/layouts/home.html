@@ -1,0 +1,28 @@
+|block 'main'|
+
+	|comp 'bigheader'|
+
+	|blogs = newQuery().byLayouts(['blog']).orderDesc('publishOn').limit( ctn.maxBlogs )|
+
+	<section class="blogs">
+		<h2>Blogs</h2>
+	|for blog in blogs|
+		<article>
+			<h3>|esc blog.title|</h3>
+			<time datetime="|blog.publishOn|">|blog.publishOn|</time>
+			<p>|replace "\n", '<br>', esc( blog.shortText )|</p>
+			<a href="|blog.url|">Link</a>
+		</article>
+	|else|
+		<div class="no-blogs">
+			<p>No Blogs</p>
+		</div>
+	|end|
+	</section>
+
+	<!--// now how do i loop through pages by layouts
+	// now how do i loop through or page cat-->
+
+|end|
+
+|inc 'templ/main'|

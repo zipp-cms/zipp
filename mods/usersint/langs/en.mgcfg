@@ -1,0 +1,22 @@
+userSection: Me
+usersHi: Hi, %s
+userTitle: User
+// all users
+allUsersTitle: Users
+// logout
+logoutTitle: Logout
+
+// main user
+usernameField: Username
+roleField: Role
+roleTexts -a: 0, Viewer,2,3, Editor, 5, Owner, 7, Admin, 9, root
+surnameField: Surname
+lastnameField: Lastname
+emailField: Email
+newPassword: New Password
+repeatNewPassword: Repeat New Password
+userSave: Update
+
+passwordError: The New Passwords don't match
+
+fieldError: There was an error with the field %s

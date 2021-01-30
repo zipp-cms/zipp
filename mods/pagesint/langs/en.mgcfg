@@ -1,0 +1,59 @@
+pagesSection: Pages
+
+pagesTitle: All Pages
+pageLayout: Layout
+searchField: Search pages
+
+pageIdUndefined: Could not find page by Id
+newPageInputError: The given data was incorrect
+newPageError: The field %s is incorrect
+
+// new Page
+newPageTitle: New Page
+layoutField: Layout
+langField: Language
+newPage: New Page
+
+// new PageLang
+newPageLangInputError: Please check the input
+newPageLangExists: The language exists already
+copyFromField: Copy Content
+dontCopy: Don't Copy
+
+// edit page
+editPageTitle: Edit Page
+titleField: Title
+urlField: URL
+pageLang: Lang
+newLang: Add Lang
+createNewLang: Add Language
+editPageInputError: The Title or the url field is invalid
+editFieldError: The field %s is incorrect
+editPageUrlExists: This url exists already
+previewLink: Open Preview
+publishField: Publish
+deleteBtn: Delete
+saveBtn: Save
+keywordsField: Keywords
+
+contentTab: Content
+optionTab: Options
+
+// Dynamic
+newDynPage: New %s
+
+// states
+stateField: State
+stateArchive: Archive
+statePreview: Preview
+stateLive: Live
+
+pagesInfo: Info
+
+// delete
+delError: Could not delete Page
+deleteLang: Delete Page
+delOption: What do you want todo with the page? Please keep in mind that references to this page will no longer work.
+pageDel: Delete Language
+deleteForever: Delete Forever
+archiveBtn: Archive

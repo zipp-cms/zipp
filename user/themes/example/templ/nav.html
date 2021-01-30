@@ -1,0 +1,9 @@
+<ul>
+|for n in nav|
+	<li><a href="|n.url|" class="|n.active ? 'active' :| |n.childrenActive ? 'children-active' :|">|esc n.title|</a>
+	|if has( n.children )|
+		|inc 'templ/nav', ['nav' => n.children]|
+	|end|
+	</li>
+|end|
+</ul>

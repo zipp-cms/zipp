@@ -1,0 +1,62 @@
+// Stuff
+select: Select
+cancel: Cancel
+
+// Cats
+mainPages: Main Pages
+blogEntries: Blog Pages
+
+// Big Header
+bigHeader: Header
+headerTitle: Title
+descHeaderTitle: This is the Big Text at the Top of the page.
+headerText: Text
+headerImg: Image
+selectMedia: Select Media
+
+// Small Header
+smallHeader: Header
+
+// Home Layout
+homeLayout: Home
+maxBlogs: Max Blogs
+
+// Blog Layout
+blogLayout: Blog
+blogShortText: Summary
+blogContent: Content
+
+// Main Layout
+mainLayout: Main
+mainContent: Content
+
+// Contact Layout
+contactLayout: Contact
+formTitleField: Title Field
+nameField: Name Field
+emailField: E-Mail Field
+contentField: Content Field
+buttonField: Button Text
+subjectField: E-Mail Subject
+thanksMessage: Thanks Message
+socialMediaLinks: Social Media Links
+addSocialMediaLink: add Link
+removeSocialMediaLink: remove Link
+socialMediaKind: Kind
+socialMediaLink: Link
+
+facebook: Facebook
+twitter: Twitter
+instagram: Instagram
+
+// Main Settings
+mainSettings: Main Settings
+
+descSettings: Description
+footerText: Footer Text
+adminEmail: Admin E-Mail
+
+navigationField: Navigation
+
+navAddBtn: Add Page
+navSelectTitle: Select Page

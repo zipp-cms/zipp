@@ -1,0 +1,11 @@
+.main-lang-switch
+	position: absolute
+	top: 20px
+	right: 20px
+
+// Icons
+.page-icon-settings::before
+	background-image: url('./../../mods/siteint/icons/settings.svg')
+
+.tp-icon-language::before
+	background-image: url('./../../mods/siteint/icons/language.svg')

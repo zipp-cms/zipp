@@ -1,0 +1,17 @@
+settingsSection: Einstellungen
+siteTitle: Seite Einstellen
+removeLang: Entfernen
+addLang: Sprache hinzufügen
+
+questSwitchLang: Soll die Sprache wirklich gewechselt werden? Alle nicht gespeicherten Änderungen werden gelöscht.
+
+// fields
+titleField: Titel
+mlField: Mehrsprachig
+languageField: Sprachen
+languageFieldDesc: Eine Sprache zu löschen kann zu versteckten Daten führen
+titleTheme: Theme
+
+fieldError: Fehler beim Feld %s
+	
+siteSave: Speichern

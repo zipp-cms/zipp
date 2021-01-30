@@ -1,0 +1,34 @@
+mediaSection: Medien
+mediaTitle: Medien
+
+editTitle: Bearbeiten
+
+// Upload
+uploadTitle: Datei hochladen
+uploadText: Max Dateien: %d, Max Dateigrösse: %s, Max Grösse: %s
+
+notLoggedIn: Bitte melde dich an um etwas hochzuladen
+nonceError: Das Formular konnte nicht validiert werden. Bitte lade die Seite neu.
+extensionError: Die Dateiendung %s ist nicht erlaubt
+uploadInfoText: Ziehen oder klicke hier um eine Datei hochzuladen (max Dateigrösse: %s)
+notAllowed: Dieser Dateityp wird nicht unterstützt.
+onlyImg: Es könnten nur bilder hochgeladen werden!
+
+// Edit
+deleteMedia: Datei löschen
+delQuestion: Soll diese Datei wirklich für immer gelöscht werden?
+deleteBtn: Löschen
+saveBtn: Speichern
+
+nameField: Dateiname
+altField: Titel in "%s"
+langField: Sprache
+everyLang: Alle
+
+fieldError: Das Feld %s ist nicht gültig
+
+// Select
+selectMediaTitle: Datei auswählen
+avMedia: Verfügbare Medien
+insertSelMedia: Ausgewählte Medien hinzufügen
+cancel: Abrechen

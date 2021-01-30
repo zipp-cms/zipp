@@ -1,0 +1,17 @@
+settingsSection: Settings
+siteTitle: Site Settings
+removeLang: remove
+addLang: Add Language
+
+questSwitchLang: Are you sure you want to switch language? This will discard any changes not saved!
+
+// fields
+titleField: Title
+mlField: Multilingual
+languageField: Languages
+languageFieldDesc: Deleting a language can lead to "hidden" data
+titleTheme: Theme
+
+fieldError: Error on field %s
+	
+siteSave: Save

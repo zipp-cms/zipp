@@ -1,0 +1,28 @@
+admin: Admin
+// login
+loginTitle: Login to Zipp CMS
+loginUsername: Username
+loginPassword: Password
+loginSubmit: Login
+credsError: Username or Password incorrect
+nonceIncorrect: The Form could not be validated. Please reload the page.
+imageBy: Picture By %s
+notLoggedIn: Please Login
+
+// sections
+homeSection: Home
+devSection: Development
+
+// HOME
+homeTitle: Dashboard
+
+// CONTENT
+contentTitle: All Pages
+
+// Dev
+devTitle: Development
+devModulesTitle: Modules
+
+authError: Your not Admin
+
+loading: Loading

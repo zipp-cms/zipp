@@ -1,0 +1,34 @@
+mediaSection: Media
+mediaTitle: Media
+
+editTitle: Edit Media
+
+// Upload
+uploadTitle: Upload a File
+uploadText: Max files: %d, Max FileSize: %s, Max PostSize: %s
+
+notLoggedIn: Please login, to upload
+nonceError: The Form could not be validated please reload the page
+extensionError: The extension %s is not allowed
+uploadInfoText: Drag and Drop or Click here to upload new Media (max size: %s)
+notAllowed: This Filetype is not supported
+onlyImg: Your are only allowed to Upload images
+
+// Edit
+deleteMedia: Delete File
+delQuestion: Are you sure you want to delete this File forever?
+deleteBtn: Delete
+saveBtn: Save
+
+nameField: Filename
+altField: Title in "%s"
+langField: Language
+everyLang: Any
+
+fieldError: The field %s is not valid
+
+// Select
+selectMediaTitle: Select Media
+avMedia: Available Media
+insertSelMedia: Insert Selected Media
+cancel: Cancel
