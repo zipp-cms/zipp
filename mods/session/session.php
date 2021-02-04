@@ -21,7 +21,7 @@ class Session extends Module {
 
 		$p = $router->basePath;
 		$p = $p === '' || $p === '/' ? '/' : '/'. $p;
-		session_set_cookie_params( 0, $p, $router->host, true, true );
+		session_set_cookie_params( 0, $p, $router->host, $router->https, true );
 
 		session_start();
 		$this->started = true;
@@ -80,7 +80,7 @@ class Session extends Module {
 
 		// maybe should move this to cookies
 		$router = $this->mods->Router;
-		setcookie( session_name(), null, -1, $router->basePath, $router->host, true, true );
+		setcookie( session_name(), null, -1, $router->basePath, $router->host, $router->https, true );
 
 		$this->started = false;
 
