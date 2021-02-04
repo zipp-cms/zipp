@@ -215,6 +215,10 @@ class Router extends Module {
 		if ( $this->https !== $https )
 			return $this->redirect();
 
+		// if the site is accessed with https but it is configured as no https
+		// we wan't to set the site as https
+		$this->https = $https;
+
 	}
 
 	protected function parseUri( string $uri ) {
