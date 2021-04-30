@@ -57,6 +57,7 @@ class SingleFile extends Field {
 	// we need a required setting
 	// gets called before inserting it into the database
 	public function validate( object $in ) {
+		$required = $this->sett->req ?? false;
 
 		// maybe should validate if the image is valid
 		// the type doenst get validated here, thats not really a security issue
@@ -66,15 +67,12 @@ class SingleFile extends Field {
 		[$id, $lang] = self::parseValue( $d );
 
 		if ( !$id || !$lang )
-			return false;
+			return !$required || false;
 
 		// mediaId123
 		$media = substr( $d, 0, 7 );
 
 		return $media === 'mediaId' && $id > 0;
-
-		// 49 maybe there isnt a slash at the end /
-		/*return cLen( $d, 1, 49 ) && !preg_match( '/[;?:@=&"<>#%{}|\\^~\[\]`\s]/', $d );*/
 
 	}
 
