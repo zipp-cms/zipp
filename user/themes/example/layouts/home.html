@@ -2,7 +2,7 @@
 
 	|comp 'bigheader'|
 
-	|blogs = newQuery().byLayouts(['blog']).orderDesc('publishOn').limit( ctn.maxBlogs )|
+	|blogs = newQuery().byLayouts(['blog']).orderDesc('publishOn').limit( ctn.maxBlogs ).short()|
 
 	<section class="blogs">
 		<h2>Blogs</h2>
