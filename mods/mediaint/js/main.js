@@ -31,7 +31,7 @@ class MediaItem {
 	renderSqr() {
 
 		if ( this.cat === 'img' )
-			return `<div class="media-img-sqr" style="background-image: url(${ this.src })"></div>`;
+			return `<div class="media-img-sqr" style="background-image: url('${ this.src }')"></div>`;
 
 		return `no viewer`;
 
