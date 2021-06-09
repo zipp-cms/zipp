@@ -1,0 +1,22 @@
+/*
+@package: Zipp
+@version: 1.0 <2021-06-09>
+*/
+
+/* basic input */
+// select
+input[type="datetime-local"]
+	@block
+	width: 100%
+	min-width: 150px
+	padding: 9px 12px
+	margin-bottom: 8px
+	border: none
+	-moz-appearance: none
+	-webkit-appearance: none
+	appearance: none
+	border-radius: 2px
+	background-color: #e9e9ec
+
+.fields-grid input[type="datetime-local"]
+	margin-bottom: 0

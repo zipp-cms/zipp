@@ -1,6 +1,6 @@
 /*
 @package: Zipp
-@version: 0.1 <2019-05-29>
+@version: 0.1.1 <2021-06-09>
 */
 
 const timeLangs = {
@@ -23,6 +23,11 @@ function getHtmlLang() {
 }
 
 class DateTime {
+
+	constructor( date ) {
+		this.dateObj = date;
+		this.lang = getHtmlLang();
+	}
 
 	get langStr() {
 		return timeLangs[this.lang];
@@ -88,56 +93,50 @@ class DateTime {
 		return `${ this.year }-${ this.padMonth }-${ this.padDate }`;
 	}
 
-	constructor( date ) {
-		this.dateObj = date;
-		this.lang = getHtmlLang();
-		// how to get lang???
-		// html
+}
+
+function isoToLocal( iso ) {
+	const d = new Date( iso );
+	// utc with local offset
+	const date = new Date( d.getTime() - d.getTimezoneOffset() * 60000);
+	// remove Z at the end
+	return date.toISOString().split('.')[0];
+}
+
+function localToIso( local ) {
+	return (new Date(local)).toISOString();
+}
+
+class TimeField extends TextField {
+
+	get value() {
+		return this.hidden.value;
+	}
+
+	get htmlField() {
+		// shim the datetime input since we need utc
+		let local = '';
+		try {
+			local = isoToLocal( tern( this.initValue, '' ) );
+		} catch (e) {
+			console.log('wrong date', e);
+		}
+		return `
+<div class="time-cont">
+<input id=${ this.id + '-hid' } type="hidden" ${ this.htmlSlug } value="${ this.initHtmlStrValue }">
+<input ${ this.htmlId } type="datetime-local" value="${ local }">
+</div>
+`;
+	}
+
+	listen() {
+		this.el = c(i(this.id));
+		this.hidden = c(i(this.id + '-hid'));
+
+		this.el.o( 'change', e => {
+			this.hidden.value = localToIso( this.el.value );
+		} );
 	}
 
 }
-
-function autoConvertDateTime() {
-
-	ca( 'time[data-autoconvert]' ).l( el => {
-
-		// convert to iso 8601
-		// const utc = el.getAttribute( 'datetime' ).replace( ' ', 'T' ) + '.000Z';
-
-		const utc = el.getAttribute( 'datetime' ),
-			lang = el.dataset.lang,
-			format = el.dataset.format;
-
-		// const date = new Date(  );
-
-		console.log( 'TODO time[data-autoconvert]', utc, lang, format );
-
-		// el.
-
-	} );
-
-}
-
-// Timezone auto convert
-autoConvertDateTime();
-
-if ( !isNil( Fields ) ) {
-
-	// TODO implement TimeField
-	class TimeField extends TextField {
-
-		/*processData( data ) {
-			this.sett = data.shift();
-			this.value = data.shift();
-		}*/
-
-		/*render() {
-			console.log( 'need to implement sett', this.sett );
-			return this.rendInfo() + `<input id="${ this.id }" type="text" name="${ this.slug }" value="${ esc( tern( this.value, '' ).join(', ') ) }">`;
-		}*/
-
-	}
-	Fields.register( 'time', TimeField );
-
-
-}
+Fields.register( 'time', TimeField );

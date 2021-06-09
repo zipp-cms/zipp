@@ -65,6 +65,8 @@ class MainInteractor extends Interactor {
 
 		$fieldsStyleFile = $this->mods->Fields->styleFile;
 		$this->admin->addStyle( 'fields', $fieldsStyleFile[0], $fieldsStyleFile[1] );
+		$timeStyleFile = $this->mods->Time->styleFile;
+		$this->admin->addStyle( 'time', $timeStyleFile[0], $timeStyleFile[1] );
 
 	}
 

@@ -16,27 +16,28 @@ class Time extends Module {
 	use RouterModule, FieldsModule;
 
 	// GETTERS
+	public function _getStyleFile() {
+		return ['css/style', 'mgcss'];
+	}
+
 	public function _getScriptFile() {
 		return 'js/time';
 	}
 
 	// datetime to iso8601
-	public function toIso( string $utc ) {
-		return str_replace( ' ', 'T', $utc ). 'Z';
+	public static function toIso( string $utc ) {
+		return Self::reformat( 'Y-m-d\TH:i:s\Z', $utc );
+	}
+
+	/// Reformats a datetime string to a given php date format string.
+	public static function reformat( string $fmtStr, string $timeStr ) {
+		$time = strtotime( $timeStr );
+		return $time ? date( $fmtStr, $time ) : null;
 	}
 
 	// iso8601 to datetime
-	public function toDate( string $utc ) {
-		return substr( str_replace( 'T', ' ', $utc ), 0, len( $utc ) - 2 );
-	}
-
-	// create html time tag
-	public function time( string $utc, string $format, string $lang ) {
-		return sprintf( '<time datetime="%s" data-autoconvert data-lang="%s" data-format="%s">%s</time>', $this->toIso( $utc ), $lang, $format, $utc. ' UTC' );
-	}
-
-	public function script() {
-		return sprintf( '<script src="%s.js"></script>', $this->url( $this->scriptFile ) );
+	public static function toDate( string $utc ) {
+		return Self::reformat( 'Y-m-d H:i:s', $utc );
 	}
 
 	// INIT

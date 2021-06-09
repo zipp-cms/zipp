@@ -9,10 +9,21 @@ namespace Time\Fields;
 use \Error;
 
 use Fields\Fields\Text;
+use Time\Time as TimeModule;
 
 // TODO: implement time field
 class Time extends Text {
 
 	public $type = 'time';
+
+	public function out( object $input ) {
+		$s = $this->getValue( $input );
+		return TimeModule::toDate( $s );
+	}
+
+	public function exportValue( object $data ) {
+		$s = $this->getValue( $data );
+		return TimeModule::toIso( $s );
+	}
 
 }
