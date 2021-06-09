@@ -17,12 +17,12 @@ class Time extends Text {
 
 	public function out( object $input ) {
 		$s = $this->getValue( $input );
-		return TimeModule::toDate( $s );
+		return $s ? TimeModule::toDate( $s ) : null;
 	}
 
 	public function exportValue( object $data ) {
 		$s = $this->getValue( $data );
-		return TimeModule::toIso( $s );
+		return $s ? TimeModule::toIso( $s ) : null;
 	}
 
 }

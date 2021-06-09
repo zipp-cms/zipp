@@ -117,9 +117,10 @@ class TimeField extends TextField {
 		// shim the datetime input since we need utc
 		let local = '';
 		try {
-			local = isoToLocal( tern( this.initValue, '' ) );
+			if ( !isNil( this.initValue ) )
+				local = isoToLocal( this.initValue );
 		} catch (e) {
-			console.log('wrong date', e);
+			console.log('wrong date', e, this.initValue);
 		}
 		return `
 <div class="time-cont">
@@ -135,6 +136,7 @@ class TimeField extends TextField {
 
 		this.el.o( 'change', e => {
 			this.hidden.value = localToIso( this.el.value );
+			this.triggerChanges();
 		} );
 	}
 
