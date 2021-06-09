@@ -18,6 +18,8 @@ class Engine {
 
 	protected $globalMixins = [];
 
+	public $tabWidth = 4;
+
 	// METHODS
 	public function go( string $file, string $niceName = null ) {
 
@@ -155,7 +157,7 @@ class Engine {
 			$line = preg_replace( '/^(\s*)<(\d+[a-z%]+)\s*$/', '$1@media (max-width: $2)', $line );
 			$line = preg_replace( '/^(\s*)>(\d+[a-z%]+)\s*$/', '$1@media (min-width: $2)', $line );
 
-			$level = $this->countLevel( $line );
+			$level = $this->countLevel( $line, $num );
 
 			// special management
 			if ( $inSpecial && $level <= $levelSpec )
@@ -310,15 +312,32 @@ class Engine {
 
 	}
 
-	protected function countLevel( string $line ) {
+	protected function countLevel( string $line, int $lineNum ) {
 		$count = 0;
+		$spaceCount = 0;
 		$len = strlen( $line );
 		for ( $i = 0; $i < $len; $i++ ) {
 			$c = $line[$i];
-			if ( $c !== "\t" )
+			// count a tab as one level
+			if ( $c === "\t" ) {
+				$count++;
+				$spaceCount = 0;
+				continue;
+			}
+
+			if ( $c !== " " )
 				break;
-			$count++;
+
+			// we have a space
+			$spaceCount++;
+
+			if ( $spaceCount === $this->tabWidth ) {
+				$count++;
+				$spaceCount = 0;
+			}
 		}
+		if ( $spaceCount > 0 )
+			throw new Error( sprintf( 'Only %d spaces instead of %d where found on line %d', $spaceCount, $this->tabWidth, $lineNum ) );
 		return $count;
 	}
 

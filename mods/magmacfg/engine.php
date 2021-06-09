@@ -16,6 +16,8 @@ class Engine {
 
 	protected $tmpPath = '';
 
+	public $tabWidth = 4;
+
 	// METHODS
 	public function go( string $file ) {
 
@@ -73,7 +75,7 @@ class Engine {
 			if ( preg_match( '/^\s*(\/\/[^\n]*)?$/', $line ) )
 				continue;
 
-			$level = $this->countLevel( $line );
+			$level = $this->countLevel( $line, $num );
 			$line = trim( $line );
 
 			if ( $level < $prevLevel )
@@ -157,14 +159,32 @@ class Engine {
 
 	}
 
-	protected function countLevel( string $line ) {
+	protected function countLevel( string $line, int $lineNum ) {
 		$count = 0;
+		$spaceCount = 0;
 		$len = strlen( $line );
 		for ( $i = 0; $i < $len; $i++ ) {
-			if ( $line[$i] !== "\t" )
+			$c = $line[$i];
+			// count a tab as one level
+			if ( $c === "\t" ) {
+				$count++;
+				$spaceCount = 0;
+				continue;
+			}
+
+			if ( $c !== " " )
 				break;
-			$count++;
+
+			// we have a space
+			$spaceCount++;
+
+			if ( $spaceCount === $this->tabWidth ) {
+				$count++;
+				$spaceCount = 0;
+			}
 		}
+		if ( $spaceCount > 0 )
+			throw new Error( sprintf( 'Only %d spaces instead of %d where found on line %d', $spaceCount, $this->tabWidth, $lineNum ) );
 		return $count;
 	}
 
