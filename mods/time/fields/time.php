@@ -11,7 +11,6 @@ use \Error;
 use Fields\Fields\Text;
 use Time\Time as TimeModule;
 
-// TODO: implement time field
 class Time extends Text {
 
 	public $type = 'time';

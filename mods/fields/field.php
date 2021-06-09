@@ -10,24 +10,44 @@ use \Error;
 
 class Field {
 
+	/// The type which this field represents
+	/// should be the class name in lowercase.
+	///
+	/// Is used in javascript to determine which
+	/// javascript class should be used.
 	public $type = 'field';
 
+	/// The slug of this field set when creating this field.
+	///
+	/// ## Example from |theme|.mgcfg
+	/// slug
+	/// 	type: Field
 	public $slug = '';
 
+	/// The name of this field, set by the user
+	/// with an attribute `name` in |theme|.mgcfg
 	public $name = '';
 
+	/// The description of this field, if any.
+	/// Gets set by the user with an attribute `desc`.
 	public $desc = '';
 
+	/// Stores all settings attributes mainly:
+	/// - req
+	/// - max
+	/// - min
 	public $sett = [];
 
+	/// The default value that should be used if this field
+	/// was not previously set.
 	public $default = null;
 
-	// gets to user (javascript)
+	/// The values that are exported to the javascript implementation.
 	public function export( object $data ) {
 		return array_merge( [ $this->type, $this->slug, $this->name, $this->desc, $this->sett, $this->exportValue( $data ) ], $this->exportData( $data ) );
 	}
 
-	// validate user data
+	/// Gets called after the field was 
 	public function validate( object $input ) { return false; }
 
 	// to database

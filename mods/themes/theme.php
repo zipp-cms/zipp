@@ -298,7 +298,7 @@ class Theme extends MagicGet {
 		// set status code
 		$req->router->setStatusCode(404);
 
-		die;
+		define( 'DONT_OUTPUT_TIME', true );
 
 		// we need to stop here
 		// TODO: maybe check for a default layout that shows an error 404 Page

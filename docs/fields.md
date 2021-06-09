@@ -9,7 +9,7 @@ For how to use the fields in a template see [Fields access](fields_access.md)
 
 ### Field [src](../mods/fields/field.php)
 
-Every field accepts the following (but nothing must be set):
+Every field accepts the following attributes (but nothing must be set):
 ```
 name: Name
 desc: Description
