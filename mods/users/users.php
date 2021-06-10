@@ -147,7 +147,7 @@ class Users extends Module {
 
 		$d->create();
 
-		if ( !$d->exists( 'zippadmin' ) )
+		if ( $d->count() === 0 )
 			$this->new( 'zippadmin', 'Password!', 'Zipp', 'Admin', 'info@zipp-cms.com', 10 );
 
 	}

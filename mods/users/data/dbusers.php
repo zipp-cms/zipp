@@ -56,19 +56,17 @@ class DbUsers extends Table {
 
 	}
 
-	public function exists( string $username ) {
+	public function count() {
 
-		$sql = sprintf( 'SELECT COUNT(`username`) as count FROM %s WHERE `username`=:username LIMIT 1', $this->name );
-		$pre = $this->prepare( $sql );
-
-		$pre->bindParam( ':username', $username, PDO::PARAM_STR );
+		$sql = sprintf( 'SELECT COUNT(`username`) as count FROM %s', $this->name );
+		$pre = $this->query( $sql );
 
 		if ( !$pre->execute() )
-			throw new Error( sprintf( 'Could check if username (%s) exists', $username ) );
+			throw new Error( 'Could not check how many users exist' );
 
 		$obj = $pre->fetchObject();
 
-		return $obj && $obj->count > 0;
+		return $obj ? $obj->count : 0;
 
 	}
 
