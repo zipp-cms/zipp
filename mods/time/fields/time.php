@@ -20,6 +20,11 @@ class Time extends Text {
 		return $s ? TimeModule::toDate( $s ) : null;
 	}
 
+	public function view( object $data ) {
+		$d = $this->out( $data );
+		return $d ? new \DateTime( $d ) : null;
+	}
+
 	public function exportValue( object $data ) {
 		$s = $this->getValue( $data );
 		return $s ? TimeModule::toIso( $s ) : null;
