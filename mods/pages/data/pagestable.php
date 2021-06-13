@@ -92,7 +92,7 @@ class PagesTable extends Table {
 
 
 	// SPECIAL
-	public function executeQuery( array $ids = null, array $layouts = null, array $orders = null ) {
+	public function executeQuery( array $ids = null, array $layouts = null, array &$orders = null ) {
 
 		$list = [];
 
@@ -111,8 +111,11 @@ class PagesTable extends Table {
 		if ( !isNil( $orders ) ) {
 			$asc = $orders[0];
 			$key = $orders[1];
-			if ( isset( $this->fields[$key] ) )
+			if ( isset( $this->fields[$key] ) ) {
 				$list[] = sprintf( 'ORDER BY `%s` %s', $key, $asc ? 'ASC' : 'DESC' );
+				// set the flag that this is sorted by the db
+				$orders[2] = true;
+			}
 		}
 
 		$sql = sprintf( 'SELECT %s FROM %s %s', $this->keys(), $this->name, implode( ' ', $list ) );

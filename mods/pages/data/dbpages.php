@@ -297,7 +297,7 @@ class DbPages extends MagicGet {
 	// SPECIAL
 
 	// filters by state
-	public function executeQuery( array $ids = null, array $layouts = null, array $order = null, int $amount, string $lang ) {
+	public function executeQuery( array $ids = null, array $layouts = null, array &$order = null, int $amount, string $lang ) {
 
 		$ps = $this->pages->executeQuery( $ids, $layouts, $order );
 		if ( !has( $ps ) )

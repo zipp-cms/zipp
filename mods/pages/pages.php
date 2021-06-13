@@ -139,7 +139,7 @@ class Pages extends Module {
 	// SPECIALS
 
 	// filters by state
-	public function executeQuery( array $ids = null, array $layouts = null, array $order = null, int $amount ) {
+	public function executeQuery( array $ids = null, array $layouts = null, array &$order = null, int $amount ) {
 		$lang = $this->activePage->lang;
 		return $this->handler->executeQuery( $ids, $layouts, $order, $amount, $lang );
 	}

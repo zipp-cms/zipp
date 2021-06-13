@@ -18,6 +18,10 @@ class PageQuery {
 
 	protected $ids = null;
 
+	// null if nothing gets ordered else
+	// [ascending|bool, key|str, sortedInDb|bool]
+	// last value gets set when the database determines
+	// if it can sort it or not
 	protected $order = null;
 
 	protected $amount = -1;
@@ -48,12 +52,12 @@ class PageQuery {
 	}
 
 	public function orderDesc( string $key ) {
-		$this->order = [false, $key];
+		$this->order = [false, $key, false];
 		return $this;
 	}
 
 	public function orderAsc( string $key ) {
-		$this->order = [true, $key];
+		$this->order = [true, $key, false];
 		return $this;
 	}
 
@@ -81,6 +85,8 @@ class PageQuery {
 			$p->replaceCtn( $ly->fullFill( $p ) );
 		}
 
+		$this->maybeSort( $pages );
+
 		return $this->filterAmount( $pages );
 	}
 
@@ -90,6 +96,8 @@ class PageQuery {
 
 		foreach ( $pages as $p )
 			$this->theme->completeUrlOnPage( $p );
+
+		$this->maybeSort( $pages );
 
 		return $this->filterAmount( $pages );
 	}
@@ -103,6 +111,8 @@ class PageQuery {
 			$p->replaceCtn( $ly->fillFields( $p ) );
 		}
 
+		$this->maybeSort( $pages );
+
 		return $this->filterAmount( $pages );
 	}
 
@@ -112,6 +122,13 @@ class PageQuery {
 
 	protected function filterAmount( array $pages ) {
 		return $this->amount === 1 ? ( $pages[0] ?? null ) : $pages;
+	}
+
+	protected function maybeSort( array &$pages ) {
+		if ( isNil( $this->order ) || $this->order[2] )
+			return;
+
+		// do some sorting
 	}
 
 	// full

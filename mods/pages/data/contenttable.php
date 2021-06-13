@@ -193,7 +193,7 @@ class ContentTable extends Table {
 	}
 
 	// filters by state
-	public function executeQuery( array $ids, array $orders = null, int $amount, bool &$doesOrder ) {
+	public function executeQuery( array $ids, array &$orders = null, int $amount, bool &$doesOrder ) {
 
 		$list = [];
 
@@ -202,6 +202,8 @@ class ContentTable extends Table {
 			$key = $orders[1];
 			if ( isset( $this->fields[$key] ) ) {
 				$doesOrder = true;
+				// set the flag that this is sorted by the db
+				$orders[2] = true;
 				$list[] = sprintf( 'ORDER BY `%s` %s', $key, $asc ? 'ASC' : 'DESC' );
 			}
 		}
