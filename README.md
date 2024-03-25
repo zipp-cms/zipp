@@ -1,5 +1,8 @@
 # Zipp CMS
 
+## Archived
+This Project was archived on march 26 2024. If Zipp ever returns, it will be written in Rust and svelte.
+
 Zipp is a small but powerful CMS and of course it's fast 🚀.  
 It is intended for small or medium websites that are mostly built from scratch. Meaning that you should build a theme for every website and keep it as simple as possible.  
 *Not like some other CMS where you need to download 20 Plugins and the administration panels looks like your desk at 4am in the morning!*
